@@ -1,6 +1,6 @@
 import React from 'react'
 import './styleFooter.css';
-
+// import HeaderComponent from '../Header/HeaderComponent';
 export default function FooterComponent() {
   return (
     <div>
@@ -14,7 +14,7 @@ export default function FooterComponent() {
                     <li><a href="https://www.tiktok.com" class="social-link">TikTok</a></li> 
                   </ul>           
                 </article>
-                  
+                
                 <article className='footer-column'>
                 <p>Contact us:</p>
                 <address><a href="mailto:info@firepalace.co.uk" class="email-link"

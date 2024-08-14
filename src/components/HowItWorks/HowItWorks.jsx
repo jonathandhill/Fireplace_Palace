@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.module.css';
 import ArticleComponent from './Article/ArticleComponent';
+import Image from 'next/image';
 
 export default function HowItWorks() {
   return (
@@ -8,7 +9,13 @@ export default function HowItWorks() {
       <main>
         <section className="hero">
         <article class ="tiles">
-            <img class="how-it-works" src="src/assets/hero-mobile.png" alt="phonecall" />
+        <Image 
+          class="how-it-works" 
+          src="/assets/hero-mobile.png" 
+          alt="phonecall" 
+          width={500}
+          height={500}
+        />
             <h3>Give us a call...</h3>
             <p>Call us and book in a "design consultation" on a date and time that suits you.</p>
         </article>
@@ -27,11 +34,13 @@ export default function HowItWorks() {
           <h2>How is works</h2>
           <ArticleComponent/>
           <article className="tiles">
-            <img
-              className="how-it-works"
-              src="src/assets/how-it-works-2.png"
-              alt="home visit"
-            />
+          <Image 
+           class="how-it-works" 
+           src="/assets/how-it-works-2.png" 
+           alt="home visit" 
+           width={500}
+           height={500}
+        />
             <h3>We come to you...</h3>
             <p>
               We come to your home to do an assessment of the space and to your
@@ -39,11 +48,13 @@ export default function HowItWorks() {
             </p>
           </article>
           <article className="tiles">
-            <img
-              className="how-it-works"
-              src="src/assets/how-it-works-3.png"
-              alt="recommendation"
-            />
+          <Image 
+            class="how-it-works" 
+            src="/assets/how-it-works-3.png" 
+            alt="recommendation" 
+            width={500}
+            height={500}
+        />
             <h3>We recommend...</h3>
             <p>We send you a bespoke set of fireplace recommendations.</p>
           </article>
