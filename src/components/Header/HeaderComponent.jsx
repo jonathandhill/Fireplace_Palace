@@ -27,7 +27,8 @@ export default function HeaderComponent({title}) {
             <article>
               <nav className={styles.navContainer}>
                 {/* Burger button */}
-                {hideShow && ( <button onClick={handleClick} >
+                {/* If menu not been clicked (hideShow true) - show burger button */}
+                {hideShow && ( <button onClick={handleClick} > 
                   <Image 
                     className={styles.headerSub} 
                     src="/assets/menu-open-button.png" 
@@ -37,8 +38,10 @@ export default function HeaderComponent({title}) {
                     ></Image>
                 </button>
                 )}
-              <div className={menu ? `${styles.fullPageMenu} ${styles.menuList}` : ''}>
+              <div className={menu ? `${styles.fullPageMenu} ${styles.menuList}` : ''}> 
+                {/* If menu clicked (true) - add styles for orange menu to appear */}
                 {/* Cross button */}
+                {/* If menu clicked (true) - show X */}
                 {menu && (
                   <div className={styles.fullPageMenu}>
                     <div className={styles.btnReverse}>
