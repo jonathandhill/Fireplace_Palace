@@ -8,7 +8,7 @@ export default function HowItWorks() {
     <div>
       <main>
         <section className="hero">
-        <article class ="tiles">
+        <article className ="tiles">
         <Image 
           class="how-it-works" 
           src="/assets/hero-mobile.png" 
@@ -35,7 +35,7 @@ export default function HowItWorks() {
           <ArticleComponent/>
           <article className="tiles">
           <Image 
-           class="how-it-works" 
+           className="how-it-works" 
            src="/assets/how-it-works-2.png" 
            alt="home visit" 
            width={500}
@@ -49,7 +49,7 @@ export default function HowItWorks() {
           </article>
           <article className="tiles">
           <Image 
-            class="how-it-works" 
+            className="how-it-works" 
             src="/assets/how-it-works-3.png" 
             alt="recommendation" 
             width={500}

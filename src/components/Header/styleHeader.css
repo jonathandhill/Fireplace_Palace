@@ -5,25 +5,29 @@
       grid-template-rows: 1fr ;
       /* margin: 1rem; */
     }
-    
-    .hero-heading{
-      font-size: 0.8rem;
-      margin: 0;
-    
-    }
-    .headerontainer{
+    .headerContainer{
      display: flex;
      flex-direction: row;
     }
     .headerSub{
      flex:1;
     }
-    .Text_phoneNumber{
+    .TextPhoneNumber{
     font-size: 1rem;
     }
     
     .phoneNumber{
       color: white;
+    }
+    .menuList {
+      /* display: block; */
+      background-color: #F0911A;
+      height: 100%;
+      width: 100%;
+    }
+    .btnReverse{
+      display: flex;
+      justify-content: flex-end;
     }
     
   }
