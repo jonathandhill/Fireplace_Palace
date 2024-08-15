@@ -1,0 +1,71 @@
+@media screen and (max-width: 480px){
+  
+    div.wrapper {
+      display: grid;
+      grid-template-rows: 1fr ;
+      /* margin: 1rem; */
+    }
+    .headerContainer{
+     display: flex;
+     flex-direction: row;
+    }
+    .headerSub{
+     flex:1;
+    }
+    .TextPhoneNumber{
+    font-size: 1rem;
+    }
+    
+    .phoneNumber{
+      color: white;
+    }
+    .menuList {
+      /* display: block; */
+      /* background-color: #F0911A; */
+      height: 100%;
+      width: 100%;
+      
+    }
+    .btnReverse{
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .hide {
+      display:none;
+    }
+
+    .show {
+      display:block;
+    }
+
+    .fullPageMenu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color:#F0911A;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .fullPageMenuList {
+      list-style-type: none;
+      padding: 0;
+      text-align: center;
+    }
+    
+    .fullPageMenuList li {
+      margin: 20px 0;
+    }
+    
+    .fullPageMenuList a {
+      color: white;
+      font-size: 24px;
+      text-decoration: none;
+    }
+    
+  }

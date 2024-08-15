@@ -40,12 +40,12 @@
       padding:10px;
     } */
     
-    .footer-container {
+    .footerContainer {
       display:flex;
       flex-direction: row;
     }
     
-    .footer-column {
+    .footerColumn {
      flex: 1;
       padding: 10px;
     }

@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import Link from 'next/link';
-import './styleHeader.css';
+import styles from './styleHeader.module.css';
 import Image from 'next/image';
 
 
@@ -20,50 +20,48 @@ export default function HeaderComponent({title}) {
   }
   return (
     <>
-    <header className='headerContainer'>
-          <h1 className="TextPhoneNumber headerSub">{title}</h1>
+    <header className={styles.headerContainer}>
+          {/* <h1 className="TextPhoneNumber headerSub">{title}</h1> */}
+          <h1 className={`${styles.TextPhoneNumber} ${styles.headerSub}`}>{title}</h1>
           <section>
             <article>
-              <nav className="navContainer">
+              <nav className={styles.navContainer}>
                 {/* Burger button */}
-              {hideShow && ( <button onClick={handleClick} className={menu? "!menu": "menu"}>
-                 <Image 
-                 class="how-it-works headerSub" 
-                 src="/assets/menu-open-button.png" 
-                 alt="phonecall" 
-                 width={10}
-                 height={10}
-                 ></Image>
-              </button>
-              )}
-              <div className='menuList'>
-                {/* Cross button */}
-              {menu && (
-                <div >
-                  <div className='btnReverse'>
-                  <button  onClick={handleClick}>
+                {hideShow && ( <button onClick={handleClick} >
                   <Image 
-                 src="/assets/menu-close-button.png" 
-                 alt="cross" 
-                 width={10}
-                 height={10}
-                 ></Image>
-                  </button>
+                    className={styles.headerSub} 
+                    src="/assets/menu-open-button.png" 
+                    alt="phonecall" 
+                    width={10}
+                    height={10}
+                    ></Image>
+                </button>
+                )}
+              <div className={menu ? `${styles.fullPageMenu} ${styles.menuList}` : ''}>
+                {/* Cross button */}
+                {menu && (
+                  <div className={styles.fullPageMenu}>
+                    <div className={styles.btnReverse}>
+                      <button onClick={handleClick}>
+                        <Image 
+                          src="/assets/menu-close-button.png" 
+                          alt="cross" 
+                          width={20}
+                          height={20}
+                        />
+                      </button>
+                    </div>
+                    <ul className={styles.fullPageMenuList}>
+                      <li><Link onClick={handleClick} href="/">Home</Link></li>
+                      <li><Link onClick={handleClick} href="/founder">Founder</Link></li>
+                    </ul>
                   </div>
-                   <ul >
-                    
-                  <li><Link href="/">Home</Link></li>
-                  <li><Link href="/founder">Founder</Link></li>
-                  </ul>
-                </div>
-                 
-              )}
-                </div>
-                </nav>
+                )}
+              </div>
+              </nav>
           </article>
           </section>
-          
-         
+        
         </header>
     </>
   )

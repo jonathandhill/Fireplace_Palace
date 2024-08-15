@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.module.css';
+import './styleHowItWorks.module.css';
 import ArticleComponent from './Article/ArticleComponent';
 import Image from 'next/image';
 
