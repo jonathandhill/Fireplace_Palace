@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from'./styleHowItWorks.module.css';
+import ReviewsComponent from '../Reviews/ReviewsComponent';
 import ArticleComponent from './Article/ArticleComponent';
 import Image from 'next/image';
 
@@ -28,6 +29,7 @@ export default function HowItWorks() {
             </h2>
           </article>
         </section>
+       <ReviewsComponent/>
         <section className={styles.howItWorksContainer}>
           <h2>How is works</h2>
           <ArticleComponent/>
