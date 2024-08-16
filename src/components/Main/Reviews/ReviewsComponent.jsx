@@ -53,8 +53,11 @@ export default function ReviewsComponent() {
             <button onClick={()=>handleClick('Scotland')}
              className={`${styles.countryButtons} ${scotland && styles.buttonSelected}`}>Scotland</button>
         </div>
-        <div>
-        {Review ? Review.text + Review.author + Review.location : ''}
+        <div class = {styles.reviewSubContainer}>
+        {Review ? Review.text : ''}
+        </div>
+        <div class={styles.reviewContent}>
+        {Review ? Review.author + " - " + Review.location : ''}
         </div>
     </article>
 </section>
