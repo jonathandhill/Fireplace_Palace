@@ -3,16 +3,23 @@
 text-align: center;
 }
 .countryButtons{
-    display: flex;
-    padding: 1rem;
+   
     margin: 1rem;
     justify-content: space-between;
     width: 7rem;
+    padding: 0.7rem;
+    background-color: gray;
+    color: white;
+    border: none;
+}
+.buttonContainer{
+    display: flex;
+    /* padding: 1rem; */
 }
 .buttonSelected{
     /* color:white; */
     border: none;
-    padding: 1rem;
+    padding: 0.7rem;
     width: 7rem;
     background-color: orange;
 }

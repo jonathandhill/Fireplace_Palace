@@ -32,7 +32,7 @@ useEffect(()=>{
     <article className={styles.reviewContainer}>
         <h1>Trusted</h1>
         <p>We've got thousands of happy customers all over the UK. Choose your country to see the latest review:</p>
-        <div>
+        <div class={styles.buttonContainer}>
         
             <button onClick={()=>handleClick('England')} 
             className={`${styles.countryButtons} ${england && styles.buttonSelected}`}>England</button>
