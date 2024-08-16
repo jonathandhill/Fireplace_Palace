@@ -1,5 +1,5 @@
 import { Aleo } from "next/font/google";
-import "./globals.css";
+import  "./globals.css";
 import HeaderComponent from "../src/components/Header/HeaderComponent";
 import FooterComponent from "../src/components/Footer/FooterComponent";
 

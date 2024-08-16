@@ -1,1 +1,9 @@
-
+.hero {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+  }

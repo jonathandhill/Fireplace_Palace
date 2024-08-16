@@ -1,11 +1,11 @@
 
-import HowItWorks from "@/src/components/HowItWorks/HowItWorks";
+import Main from "@/src/components/Main/MainComponent";
 import "./page.css";
 
 export default function Home() {
   return (
-    <main className="main">
-      <HowItWorks />
-    </main>
+    <>
+    <Main/>
+    </>
   );
 }

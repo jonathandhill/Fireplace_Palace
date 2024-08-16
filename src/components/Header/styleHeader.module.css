@@ -11,6 +11,7 @@
     }
     .headerSub{
      flex:1;
+     
     }
     .TextPhoneNumber{
     font-size: 1rem;
@@ -20,8 +21,6 @@
       color: white;
     }
     .menuList {
-      /* display: block; */
-      /* background-color: #F0911A; */
       height: 100%;
       width: 100%;
       
