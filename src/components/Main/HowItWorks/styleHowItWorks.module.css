@@ -8,13 +8,11 @@
     box-sizing: border-box;
   }
   .howItWorksContainer {
+   text-align: center;
+  }
+  .howItWorksSubContainer{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    /* padding: 3rem; */
-    /* width: 100%; */
-    /* box-sizing: border-box; */
+
   }
 
   .textBgColor {
@@ -28,12 +26,12 @@
   .phoneNumber{
     color: white;
   }
-  .howItWorksContainer {
+  /* .howItWorksContainer {
     display: flex;
     justify-content: center;
     text-align: center;
     width: 100%;
-  }
+  } */
 }
 @media screen and (max-width: 480px) {
 
@@ -74,16 +72,18 @@
     font-size: 0.9rem;
   }
 
-  .howItWorksContainer {
+  .howItWorksSubContainer {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     text-align: center;
-    padding: 3rem;
-    width: 100%;
-    box-sizing: border-box;
+    /* padding: 3rem; */
+    /* width: 100%; */
+    /* box-sizing: border-box; */
   }
+  .howItWorksContainer {
+    text-align: center;
+   }
   .phoneNumber{
     color: white;
   }

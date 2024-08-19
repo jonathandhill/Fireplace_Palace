@@ -14,12 +14,7 @@ export default function ReviewsComponent() {
         console.log(selectedCountry);
         setCountry(place)
     }
-    //    let btn = [
-    //     {place:'england', text:''},
-    //     {place:'england', text:''},
-    //     {place:'england', text:''}
-
-    //    ]
+    
     useEffect(()=>{
         if (selectedCountry) {
 

@@ -1,3 +1,29 @@
-.test {
-    color: aqua;
+@media screen and (min-width: 700px) {
+  .founderSubContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    gap: 20px;
+  }
+  .headerFounders {
+    font-size: 2rem;
+    padding: 10px;
+    margin: 10px;
+    background-color: #f0911a;
+  }
+}
+@media screen and (max-width: 480px) {
+  .headerFounders {
+    font-size: 2rem;
+    padding: 10px;
+    margin: 10px;
+    background-color: #f0911a;
+  }
+  .founderSubContainer {
+    display: flex;
+    flex-direction: column;
+  }
 }
