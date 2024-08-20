@@ -3,6 +3,7 @@ import styles from "./styleHowItWorks.module.css";
 import ReviewsComponent from "../Reviews/ReviewsComponent";
 import ArticleComponent from "./Article/ArticleComponent";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function HowItWorks() {
   const articles = [
@@ -48,8 +49,8 @@ export default function HowItWorks() {
               Perfect Fireplace ...
             </h1>
             <h2 className={styles.TextPhoneNumber}>
-              Book consultation:
-              <span className={styles.phoneNumber}> 0121 345 6789</span>
+              <Link href="/Booking"> Book consultation</Link>
+              {/* <span className={styles.phoneNumber}> 0121 345 6789</span> */}
             </h2>
           </article>
         </section>
