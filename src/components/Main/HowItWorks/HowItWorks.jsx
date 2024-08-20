@@ -40,7 +40,6 @@ export default function HowItWorks() {
               alt="phonecall"
               width={1000}
               height={400}
-              layout="responsive"
             />
           </article>
           <article className={styles.textBgColor}>

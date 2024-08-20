@@ -2,23 +2,39 @@
 import { useState } from "react";
 
 export default function BookingComponent() {
-  const [formInput, setFormInput] = useState("");
+  const [formInput, setFormInput] = useState({
+    fullName: '',
+    Postcode: '',
+    House: '',
+    City: '',
+    PhoneNumber: '',
+    EmailAddress: ''
+  });
 
-  function handleChangeEvent(event) {
-    // console.log(formInput);
+  const handleChangeEvent = (e) => {
+    
+// need to add error handling if field left blank!!
+// need new state for error, setError
 
-    if (event.target.name == "fullName") {
-      setFormInput(event.target.value);
-      console.log(formInput);
-    }
-    // if (event.target.name == "pincode") {
-    //   setFormInput(event.target.value);
-    // }
+      const { name, value } = e.target;
+      setFormInput(prevData => ({
+        ...prevData,
+          [name]: value
+      }))
+    // Destructure the name and value from the event target (input field).
+    // Update the formInput state by spreading the previous state and setting the new value for the input field that triggered the event.
+    // The property name in the state is dynamically determined by the input field's name attribute.
   }
+    const handleSubmit = (e) => {
+      e.preventDefault(); //prevent reload
+    console.log('Form submitted:', formInput);
+    // Here you would typically send the data to an API
+    }
+  
   return (
     <section>
       <article>
-        <form>
+        <form onSubmit={handleSubmit}>
           <h1>Design Booking</h1>
           <fieldset>
             <legend>Personal Information:</legend>
@@ -29,7 +45,7 @@ export default function BookingComponent() {
                   <input
                     type="text"
                     name="fullName"
-                    value={formInput}
+                    value={formInput.fullName}
                     onChange={(event) => {
                       handleChangeEvent(event);
                     }}
@@ -39,19 +55,37 @@ export default function BookingComponent() {
               <div>
                 <label>
                   Postcode:
-                  <input type="text" name="Postcode"></input>
+                  <input 
+                  type="text" 
+                  name="Postcode" 
+                  value={formInput.Postcode} 
+                  onChange={(event) => {
+                      handleChangeEvent(event);
+                    }}></input>
                 </label>
               </div>
               <div>
                 <label>
                   House/Flat Number and Street Name:
-                  <input type="text" name="House"></input>
+                  <input 
+                  type="text" 
+                  name="House" 
+                  value={formInput.House}
+                  onChange={(event) => {
+                  handleChangeEvent(event);
+                  }}></input>
                 </label>
               </div>
               <div>
                 <label>
                   City:
-                  <input type="text" name="City"></input>
+                  <input 
+                  type="text" 
+                  name="City"
+                  value={formInput.City}
+                  onChange={(event) => {
+                  handleChangeEvent(event);
+                  }}></input>
                 </label>
               </div>
             </div>
@@ -63,18 +97,31 @@ export default function BookingComponent() {
               <div>
                 <label>
                   Phone Number:
-                  <input type="text" name="Phone Number"></input>
+                  <input 
+                  type="text" 
+                  name="PhoneNumber"
+                  value={formInput.PhoneNumber}
+                  onChange={(event) => {
+                  handleChangeEvent(event);
+                  }}></input>
                 </label>
               </div>
               <div>
                 <label>
-                  Email Adress:
-                  <input type="text" name="Email Adress"></input>
+                  Email Address:
+                  <input 
+                  type="text" 
+                  name="EmailAddress"
+                  value={formInput.EmailAddress}
+                  onChange={(event) => {
+                  handleChangeEvent(event);
+                  }}
+                  ></input>
                 </label>
               </div>
             </div>
           </fieldset>
-          <button>Request Design Consultation</button>
+          <button type="submit">Request Design Consultation</button>
         </form>
       </article>
     </section>
