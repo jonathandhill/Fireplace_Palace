@@ -50,14 +50,14 @@ export default function BookingComponent() {
     e.preventDefault(); //prevent reload
 
     // Check for any validation errors
-    if (Object.values(formInput).some((field) => field === "")) {
-      setHasErrors(true);
-      console.log("Form has errors, cannot submit.");
-      return;
-    }
+    // if (Object.values(formInput).some((field) => field === "")) {
+    //   setHasErrors(true);
+    //   console.log("Form has errors, cannot submit.");
+    //   return;
+    // }
 
     setHasErrors(false);
-    console.log("Form submitted:", formInput);
+    console.log("Form submitted:", state);
     // Here you would typically send the data to an API
   };
 
