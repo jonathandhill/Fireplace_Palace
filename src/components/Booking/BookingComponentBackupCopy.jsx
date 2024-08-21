@@ -3,7 +3,12 @@ import { useState } from "react";
 
 export default function BookingComponent() {
   const [formInput, setFormInput] = useState({
-    fullName: ''
+    fullName: '',
+    Postcode: '',
+    House: '',
+    City: '',
+    PhoneNumber: '',
+    EmailAddress: ''
   });
 
   const [hasErrors, setHasErrors] = useState(false);
@@ -59,7 +64,40 @@ export default function BookingComponent() {
                 </label>
               </div>
               <div>
-                //next field
+                <label>
+                  Postcode:
+                  <input 
+                  type="text" 
+                  name="Postcode" 
+                  value={formInput.Postcode} 
+                  onChange={(event) => {
+                      handleChangeEvent(event);
+                    }}></input>
+                </label>
+              </div>
+              <div>
+                <label>
+                  House/Flat Number and Street Name:
+                  <input 
+                  type="text" 
+                  name="House" 
+                  value={formInput.House}
+                  onChange={(event) => {
+                  handleChangeEvent(event);
+                  }}></input>
+                </label>
+              </div>
+              <div>
+                <label>
+                  City:
+                  <input 
+                  type="text" 
+                  name="City"
+                  value={formInput.City}
+                  onChange={(event) => {
+                  handleChangeEvent(event);
+                  }}></input>
+                </label>
               </div>
             </div>
           </fieldset>
@@ -67,7 +105,31 @@ export default function BookingComponent() {
           <fieldset>
             <legend> Contact Information:</legend>
             <div>
-
+              <div>
+                <label>
+                  Phone Number:
+                  <input 
+                  type="text" 
+                  name="PhoneNumber"
+                  value={formInput.PhoneNumber}
+                  onChange={(event) => {
+                  handleChangeEvent(event);
+                  }}></input>
+                </label>
+              </div>
+              <div>
+                <label>
+                  Email Address:
+                  <input 
+                  type="text" 
+                  name="EmailAddress"
+                  value={formInput.EmailAddress}
+                  onChange={(event) => {
+                  handleChangeEvent(event);
+                  }}
+                  ></input>
+                </label>
+              </div>
             </div>
           </fieldset>
           {hasErrors && <p style={{ color: 'red' }}>Please fill in all fields.</p>}
