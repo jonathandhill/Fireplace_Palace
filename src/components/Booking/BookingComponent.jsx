@@ -11,6 +11,8 @@ export default function BookingComponent() {
     EmailAddress: ''
   });
 
+  const [hasErrors, setHasErrors] = useState(false);
+
   const handleChangeEvent = (e) => {
     
 // need to add error handling if field left blank!!
@@ -27,6 +29,15 @@ export default function BookingComponent() {
   }
     const handleSubmit = (e) => {
       e.preventDefault(); //prevent reload
+      
+    // Check for any validation errors
+    if (Object.values(formInput).some(field => field === '')) {
+      setHasErrors(true);
+      console.log('Form has errors, cannot submit.');
+      return;
+    }
+
+    setHasErrors(false);
     console.log('Form submitted:', formInput);
     // Here you would typically send the data to an API
     }
@@ -121,6 +132,7 @@ export default function BookingComponent() {
               </div>
             </div>
           </fieldset>
+          {hasErrors && <p style={{ color: 'red' }}>Please fill in all fields.</p>}
           <button type="submit">Request Design Consultation</button>
         </form>
       </article>
