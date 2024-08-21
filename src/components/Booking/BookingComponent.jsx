@@ -1,42 +1,66 @@
 "use client";
-import { useState } from "react";
+import { useReducer, useState } from "react";
+const initialState = {
+  data: {
+    fullName: "",
+  },
+  errorStatus: false,
+};
+function reducer(state, action) {
+  switch (action.type) {
+    case "CHANGE_FORM_DATA":
+      // Make a copy of current state
+      let newState = { ...state };
 
+      // grab the data out of your action's payload
+      const fieldName = action.payload.name;
+      const newFieldValue = action.payload.value;
+
+      // update the newState with the changed data
+      newState.data[fieldName] = newFieldValue;
+      // return new state 🔥🚀
+      return newState;
+
+    // dont forget your breaks - important
+
+    case "":
+
+    default:
+      return state;
+  }
+}
 export default function BookingComponent() {
-  const [formInput, setFormInput] = useState({
-    fullName: ''
-  });
+  // New "mocked up" state object that combines that stuff
 
   const [hasErrors, setHasErrors] = useState(false);
 
-  const handleChangeEvent = (e) => {
-    
-// need to add error handling if field left blank!!
-// need new state for error, setError
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-      const { name, value } = e.target;
-      setFormInput(prevData => ({
-        ...prevData,
-          [name]: value
-      }))
-    // Destructure the name and value from the event target (input field).
-    // Update the formInput state by spreading the previous state and setting the new value for the input field that triggered the event.
-    // The property name in the state is dynamically determined by the input field's name attribute.
-  }
-    const handleSubmit = (e) => {
-      e.preventDefault(); //prevent reload
-      
+  const handleChangeEvent = (event) => {
+    dispatch({
+      type: "CHANGE_FORM_DATA",
+      payload: {
+        name: event.target.name, // name of field
+        value: event.target.value, // new value
+      },
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); //prevent reload
+
     // Check for any validation errors
-    if (Object.values(formInput).some(field => field === '')) {
+    if (Object.values(formInput).some((field) => field === "")) {
       setHasErrors(true);
-      console.log('Form has errors, cannot submit.');
+      console.log("Form has errors, cannot submit.");
       return;
     }
 
     setHasErrors(false);
-    console.log('Form submitted:', formInput);
+    console.log("Form submitted:", formInput);
     // Here you would typically send the data to an API
-    }
-  
+  };
+
   return (
     <section>
       <article>
@@ -51,26 +75,24 @@ export default function BookingComponent() {
                   <input
                     type="text"
                     name="fullName"
-                    value={formInput.fullName}
+                    value={state.data.fullName}
                     onChange={(event) => {
                       handleChangeEvent(event);
                     }}
                   ></input>
                 </label>
               </div>
-              <div>
-                //next field
-              </div>
+              <div>//next field</div>
             </div>
           </fieldset>
 
           <fieldset>
             <legend> Contact Information:</legend>
-            <div>
-
-            </div>
+            <div></div>
           </fieldset>
-          {hasErrors && <p style={{ color: 'red' }}>Please fill in all fields.</p>}
+          {hasErrors && (
+            <p style={{ color: "red" }}>Please fill in all fields.</p>
+          )}
           <button type="submit">Request Design Consultation</button>
         </form>
       </article>
