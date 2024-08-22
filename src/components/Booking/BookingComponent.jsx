@@ -1,5 +1,7 @@
 "use client";
 import { useReducer, useState } from "react";
+import styles from "./styleBooking.module.css";
+
 
 // create initialState (object with data and errorStatus keys)
 const initialState = {
@@ -123,7 +125,7 @@ export default function BookingComponent() {
                       handleChangeEvent(event);
                     }}
                   ></input>
-                  {state.Status === 'Error' && !state.data.FullName ? <p>Please include your full name</p> : ''}
+                  {state.Status === 'Error' && !state.data.FullName ? <p className="errorMessages">Please include your full name</p> : ''}
                 </label>
               </div>
               <div>
@@ -137,7 +139,7 @@ export default function BookingComponent() {
                       handleChangeEvent(event);
                     }}
                   ></input>
-                  {state.Status === 'Error' && !state.data.Postcode ? <p>England, Wales, Scotland booking only</p> : ''}
+                  {state.Status === 'Error' && !state.data.Postcode ? <p className="errorMessages">England, Wales, Scotland booking only</p> : ''}
                 </label>
               </div>
             </div>
@@ -152,7 +154,7 @@ export default function BookingComponent() {
                     handleChangeEvent(event);
                   }}
                 ></input>
-                {state.Status === 'Error' && !state.data.House ? <p>Please include a full address</p> : ''}
+                {state.Status === 'Error' && !state.data.House ? <p className="errorMessages">Please include a full address</p> : ''}
               </label>
             </div>
             <div>
@@ -166,7 +168,7 @@ export default function BookingComponent() {
                     handleChangeEvent(event);
                   }}
                 ></input>
-                {state.Status === 'Error' && !state.data.City ? <p>Please include a full address</p> : ''}
+                {state.Status === 'Error' && !state.data.City ? <p className="errorMessages">Please include a full address</p> : ''}
               </label>
             </div>
           </fieldset>
@@ -184,7 +186,7 @@ export default function BookingComponent() {
                       handleChangeEvent(event);
                     }}
                   ></input>
-                  {state.Status === 'Error' && !state.data.PhoneNumber ? <p>Please include a phone number</p> : ''}
+                  {state.Status === 'Error' && !state.data.PhoneNumber ? <p className="errorMessages">Please include a phone number</p> : ''}
                 </label>
               </div>
               <div>
@@ -198,14 +200,14 @@ export default function BookingComponent() {
                       handleChangeEvent(event);
                     }}
                   ></input>
-                  {state.Status === 'Error' && !state.data.EmailAddress ? <p>Please include a email address</p> : ''}
+                  {state.Status === 'Error' && !state.data.EmailAddress ? <p className="errorMessages">Please include a email address</p> : ''}
                 </label>
               </div>
             </div>
           </fieldset>
-          {hasErrors && (
+          {/* {hasErrors && (
             <p style={{ color: "red" }}>Please fill in all fields.</p>
-          )}
+          )} */}
           {state.Status === 'Submitting' ? 'Submitting...' :
           <button type="submit">Request Design Consultation</button>
           }
