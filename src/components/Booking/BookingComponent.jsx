@@ -50,7 +50,11 @@ function reducer(state, action) {
         ...state,
         Status: "Success",
       };
-
+    case "Form_Full":
+      return {
+        ...state,
+        Status: "Editing"
+      };
     default:
       return state;
   }
@@ -72,7 +76,8 @@ export default function BookingComponent() {
         value: event.target.value, // new value
       },
     });
-  };
+  }
+    
 
   const handleSubmit = (e) => {
     e.preventDefault(); //prevent reload
@@ -99,6 +104,8 @@ export default function BookingComponent() {
       });
     }, 5000);
 
+    
+
     // setHasErrors(false);
     // console.log("Form submitted:", state);
     // Here you would typically send the data to an API
@@ -108,7 +115,7 @@ export default function BookingComponent() {
     <section>
       <article>
         {/* If button clicked, status is Submitting, hide form and show 'Submitting'*/}
-      {state.Status === 'Success' ? 'Thank you for your booking' :
+      {state.Status === 'Success' ? <div className={styles.successMessage}>Thank you for your booking</div> :
         <form onSubmit={handleSubmit}>
           <article className={styles.headingBox}>
             <h1 className={styles.bookingHeading}>Design Booking</h1>
@@ -216,7 +223,8 @@ export default function BookingComponent() {
           {/* {hasErrors && (
             <p style={{ color: "red" }}>Please fill in all fields.</p>
           )} */}
-          {state.Status === 'Submitting' ? 'Submitting...' :
+          {state.Status === 'Submitting' ? <div className={styles.submitting}>Submitting...</div> :
+          // state.Status === 'Error' ? <div className={styles.submitting}>Please fix above errors..</div> :
           <button className={styles.button} type="submit">Request Design Consultation</button>
           }
         </form> }

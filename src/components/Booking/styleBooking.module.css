@@ -12,6 +12,26 @@
         margin: 10px 0 20px 0;
     }
 
+    .successMessage {
+        width: 100%;
+        height: 75%;
+        background-color: #f0911a;
+        padding: 10px;
+        margin: 10px 0 20px 0;
+        text-align: center;
+    }
+
+    .submitting {
+        width: 100%;
+        padding: 10px;
+        background-color: #F0911A;
+        height: 2.3rem;
+        margin: 1.5rem 0.2rem 1.6rem 0.2rem;
+        box-sizing: border-box;
+        border-style: hidden;
+        text-align: center;
+    }
+
     .bookingHeading {
         font-size: 1.3rem;
         margin: 0.6rem 0 0.6rem 0.6rem;
