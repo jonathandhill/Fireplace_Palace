@@ -14,6 +14,11 @@
     margin: 10px;
     background-color: #f0911a;
   }
+
+  .founderSubContainer {
+    display: flex;
+    flex-direction: row;
+  }
 }
 @media screen and (max-width: 480px) {
   .headerFounders {
@@ -26,4 +31,9 @@
     display: flex;
     flex-direction: column;
   }
+}
+
+.howItWorks {
+  width: 100%;
+  height:auto;
 }

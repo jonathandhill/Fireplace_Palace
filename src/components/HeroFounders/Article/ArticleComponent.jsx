@@ -13,7 +13,7 @@ export default function ArticleComponent({
       <h3>{title}</h3>
       <p>{description}</p>
       <Image
-        // className={styles.howItWorks}
+        className={styles.howItWorks}
         src={imageSrc}
         alt={altText}
         width={420}
