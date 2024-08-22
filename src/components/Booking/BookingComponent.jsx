@@ -4,14 +4,14 @@ import { useReducer, useState } from "react";
 // create initialState (object with data and errorStatus keys)
 const initialState = {
   data: {
-    FullName: '',
-    Postcode: '',
-    House: '',
-    City: '',
-    PhoneNumber: '',
-    EmailAddress: ''
+    FullName: "",
+    Postcode: "",
+    House: "",
+    City: "",
+    PhoneNumber: "",
+    EmailAddress: "",
   },
-  errorStatus: false,
+  Status: "Editing",
 };
 
 // Reducer function which has data and action, and different cases of action.type
@@ -20,7 +20,7 @@ function reducer(state, action) {
     case "CHANGE_FORM_DATA":
       // Make a copy of current state
       let newState = { ...state };
-      
+
       // grab the data out of your action's payload
       const fieldName = action.payload.name;
       const newFieldValue = action.payload.value;
@@ -28,12 +28,26 @@ function reducer(state, action) {
       // update the newState with the changed data
       newState.data[fieldName] = newFieldValue;
       // return new state 🔥🚀
-      
+
       return newState;
 
     // dont forget your breaks - important
 
-    case "":
+    case "Submit_Started":
+      return {
+        ...state,
+        Status: "Submitting",
+      };
+    case "Error":
+      return {
+        ...state,
+        Status: "Error",
+      };
+    case "Form_Success":
+      return {
+        ...state,
+        Status: "Success",
+      };
 
     default:
       return state;
@@ -42,11 +56,11 @@ function reducer(state, action) {
 
 export default function BookingComponent() {
   // New "mocked up" state object that combines that stuff
-
   const [hasErrors, setHasErrors] = useState(false);
 
   // passing reducer function and initialState into useReducer. That gives the Reducer function the initalState as 'state'
   const [state, dispatch] = useReducer(reducer, initialState);
+  console.log("state", state);
 
   const handleChangeEvent = (event) => {
     dispatch({
@@ -60,16 +74,31 @@ export default function BookingComponent() {
 
   const handleSubmit = (e) => {
     e.preventDefault(); //prevent reload
+    dispatch({
+      type: "Submit_Started",
+    });
 
-    // Check for any validation errors
-    // if (Object.values(formInput).some((field) => field === "")) {
-    //   setHasErrors(true);
-    //   console.log("Form has errors, cannot submit.");
-    //   return;
-    // }
+    setTimeout(() => {
+      if (
+        !state.data.FullName ||
+        !state.data.Postcode ||
+        !state.data.House ||
+        !state.data.City ||
+        !state.data.PhoneNumber ||
+        !state.data.EmailAddress
+      ) {
+        dispatch({
+          type: "Error",
+        });
+        return;
+      }
+      dispatch({
+        type: "Form_Success",
+      });
+    }, 5000);
 
-    setHasErrors(false);
-    console.log("Form submitted:", state);
+    // setHasErrors(false);
+    // console.log("Form submitted:", state);
     // Here you would typically send the data to an API
   };
 
@@ -89,7 +118,7 @@ export default function BookingComponent() {
                     name="FullName"
                     value={state.data.FullName}
                     onChange={(event) => {
-                    handleChangeEvent(event);
+                      handleChangeEvent(event);
                     }}
                   ></input>
                 </label>
@@ -97,40 +126,43 @@ export default function BookingComponent() {
               <div>
                 <label>
                   Postcode:
-                  <input 
-                  type="text" 
-                  name="Postcode" 
-                  value={state.data.PostCode} 
-                  onChange={(event) => {
-                  handleChangeEvent(event);
-                    }}></input>
+                  <input
+                    type="text"
+                    name="Postcode"
+                    value={state.data.PostCode}
+                    onChange={(event) => {
+                      handleChangeEvent(event);
+                    }}
+                  ></input>
                 </label>
               </div>
             </div>
             <div>
-                <label>
-                  House/Flat Number and Street Name:
-                  <input 
-                  type="text" 
-                  name="House" 
+              <label>
+                House/Flat Number and Street Name:
+                <input
+                  type="text"
+                  name="House"
                   value={state.data.House}
                   onChange={(event) => {
-                  handleChangeEvent(event);
-                  }}></input>
-                </label>
-              </div>
-              <div>
-                <label>
-                  City:
-                  <input 
-                  type="text" 
+                    handleChangeEvent(event);
+                  }}
+                ></input>
+              </label>
+            </div>
+            <div>
+              <label>
+                City:
+                <input
+                  type="text"
                   name="City"
                   value={state.data.City}
                   onChange={(event) => {
-                  handleChangeEvent(event);
-                  }}></input>
-                </label>
-              </div>
+                    handleChangeEvent(event);
+                  }}
+                ></input>
+              </label>
+            </div>
           </fieldset>
           <fieldset>
             <legend> Contact Information:</legend>
@@ -138,25 +170,26 @@ export default function BookingComponent() {
               <div>
                 <label>
                   Phone Number:
-                  <input 
-                  type="text" 
-                  name="PhoneNumber"
-                  value={state.data.PhoneNumber}
-                  onChange={(event) => {
-                  handleChangeEvent(event);
-                  }}></input>
+                  <input
+                    type="text"
+                    name="PhoneNumber"
+                    value={state.data.PhoneNumber}
+                    onChange={(event) => {
+                      handleChangeEvent(event);
+                    }}
+                  ></input>
                 </label>
               </div>
               <div>
                 <label>
                   Email Address:
-                  <input 
-                  type="text" 
-                  name="EmailAddress"
-                  value={state.data.EmailAddress}
-                  onChange={(event) => {
-                  handleChangeEvent(event);
-                  }}
+                  <input
+                    type="text"
+                    name="EmailAddress"
+                    value={state.data.EmailAddress}
+                    onChange={(event) => {
+                      handleChangeEvent(event);
+                    }}
                   ></input>
                 </label>
               </div>
