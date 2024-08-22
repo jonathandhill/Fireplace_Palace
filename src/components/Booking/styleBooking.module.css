@@ -1,5 +1,37 @@
-@media screen and (min-width: 700px) {
+@media screen and (max-width: 480px) {
+    
     .errorMessages {
     color: red;
-}
+    }
+
+    .headingBox {
+        padding: 10px;
+        background: #F0911A;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 10px 0 20px 0;
+    }
+
+    .bookingHeading {
+        font-size: 1.3rem;
+        margin: 0.6rem 0 0.6rem 0.6rem;
+    }
+
+    .contactFieldset {
+        margin-top: 25px;
+    }
+
+    .errorInput {
+        border: 2px solid red;
+    }
+
+    .button {
+        width: 100%;
+        padding: 10px;
+        background-color: #F0911A;
+        height: 2.3rem;
+        margin: 1.5rem 0.2rem 1.6rem 0.2rem;
+        box-sizing: border-box;
+        border-style: hidden;
+    }
 }
