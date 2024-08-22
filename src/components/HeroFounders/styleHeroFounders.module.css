@@ -1,4 +1,4 @@
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 480px) {
   .founderSubContainer {
     display: flex;
     flex-direction: row;
@@ -15,10 +15,6 @@
     background-color: #f0911a;
   }
 
-  .founderSubContainer {
-    display: flex;
-    flex-direction: row;
-  }
 }
 @media screen and (max-width: 480px) {
   .headerFounders {
