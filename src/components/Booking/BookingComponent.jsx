@@ -105,6 +105,8 @@ export default function BookingComponent() {
   return (
     <section>
       <article>
+        {/* If button clicked, status is Submitting, hide form and show 'Submitting'*/}
+      {state.Status === 'Success' ? 'Thank you for your booking' :
         <form onSubmit={handleSubmit}>
           <h1>Design Booking</h1>
           <fieldset>
@@ -121,6 +123,7 @@ export default function BookingComponent() {
                       handleChangeEvent(event);
                     }}
                   ></input>
+                  {state.Status === 'Error' && !state.data.FullName ? <p>Please include your full name</p> : ''}
                 </label>
               </div>
               <div>
@@ -134,6 +137,7 @@ export default function BookingComponent() {
                       handleChangeEvent(event);
                     }}
                   ></input>
+                  {state.Status === 'Error' && !state.data.Postcode ? <p>England, Wales, Scotland booking only</p> : ''}
                 </label>
               </div>
             </div>
@@ -148,6 +152,7 @@ export default function BookingComponent() {
                     handleChangeEvent(event);
                   }}
                 ></input>
+                {state.Status === 'Error' && !state.data.House ? <p>Please include a full address</p> : ''}
               </label>
             </div>
             <div>
@@ -161,6 +166,7 @@ export default function BookingComponent() {
                     handleChangeEvent(event);
                   }}
                 ></input>
+                {state.Status === 'Error' && !state.data.City ? <p>Please include a full address</p> : ''}
               </label>
             </div>
           </fieldset>
@@ -178,6 +184,7 @@ export default function BookingComponent() {
                       handleChangeEvent(event);
                     }}
                   ></input>
+                  {state.Status === 'Error' && !state.data.PhoneNumber ? <p>Please include a phone number</p> : ''}
                 </label>
               </div>
               <div>
@@ -191,6 +198,7 @@ export default function BookingComponent() {
                       handleChangeEvent(event);
                     }}
                   ></input>
+                  {state.Status === 'Error' && !state.data.EmailAddress ? <p>Please include a email address</p> : ''}
                 </label>
               </div>
             </div>
@@ -198,8 +206,11 @@ export default function BookingComponent() {
           {hasErrors && (
             <p style={{ color: "red" }}>Please fill in all fields.</p>
           )}
+          {state.Status === 'Submitting' ? 'Submitting...' :
           <button type="submit">Request Design Consultation</button>
-        </form>
+          }
+        </form> }
+        {/* after 5 secs, if status is 'Success' - hide form and show 'Success'*/}
       </article>
     </section>
   );
