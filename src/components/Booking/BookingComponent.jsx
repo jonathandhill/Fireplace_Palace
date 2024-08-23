@@ -236,9 +236,6 @@ export default function BookingComponent() {
               </div>
             </div>
           </fieldset>
-          {/* {hasErrors && (
-            <p style={{ color: "red" }}>Please fill in all fields.</p>
-          )} */}
           {state.Status === 'Submitting' ? <div className={styles.submitting}>Submitting...</div> :
           // state.Status === 'Error' ? <div className={styles.submitting}>Please fix above errors..</div> :
           <button className={styles.button} type="submit">Request Design Consultation</button>
