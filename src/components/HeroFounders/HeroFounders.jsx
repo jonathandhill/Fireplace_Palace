@@ -34,7 +34,7 @@ function HeroFounders() {
       <article>
         <h1 className={styles.headerFounders}>
           Meet the artisans behind our masterpieces! <br></br>
-          <br></br> Mike and Mandy{" "}
+          <br></br> Mike and Mandy
           <Image
             className={styles.howItWorks}
             src="/assets/founder-mike-and-mandy.png"
