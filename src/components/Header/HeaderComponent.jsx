@@ -60,7 +60,7 @@ export default function HeaderComponent({ title }) {
                 {/* If menu clicked (true) - show X */}
                 {menu && (
                   <div
-                    className={`${styles.fullPageMenu} ${styles.btnReverse}`}
+                  // className={`${styles.fullPageMenu} ${styles.btnReverse}`}
                   >
                     <div className={styles.btnReverse}>
                       <button onClick={handleClick}>

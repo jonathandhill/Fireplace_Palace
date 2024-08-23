@@ -18,10 +18,7 @@
     text-align: center;
     text-decoration: none;
   }
-  /* .headerContainer {
-    display: flex;
-    flex-direction: row;
-  } */
+
   .headerDesktop {
     display: flex;
   }
