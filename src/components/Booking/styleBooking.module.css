@@ -1,7 +1,9 @@
 @media screen and (max-width: 480px) {
     
     .errorMessages {
-    color: red;
+        color: red;
+        margin-top: 0;
+        font-size: small;
     }
 
     .headingBox {
@@ -39,10 +41,30 @@
 
     .contactFieldset {
         margin-top: 25px;
+        background-color: #E5E5E5;
     }
 
     .errorInput {
         border: 2px solid red;
+    }
+
+
+    .personalFieldset {
+        background-color: #E5E5E5;
+    }
+
+    .formField {
+        margin: 15px 0 15px 0;
+    }
+
+    .formField input {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .formLabel {
+        display: block;
     }
 
     .button {

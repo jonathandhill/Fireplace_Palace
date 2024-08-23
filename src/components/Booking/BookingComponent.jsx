@@ -69,6 +69,7 @@ export default function BookingComponent() {
   console.log("state", state);
 
   const handleChangeEvent = (event) => {
+
     dispatch({
       type: "CHANGE_FORM_DATA",
       payload: {
@@ -76,6 +77,21 @@ export default function BookingComponent() {
         value: event.target.value, // new value
       },
     });
+
+
+    // if (state.Status === 'Error' && 
+    //     (state.data.FullName &&
+    //     state.data.Postcode &&
+    //     state.data.House &&
+    //     state.data.City &&
+    //     state.data.PhoneNumber &&
+    //     state.data.EmailAddress)
+    // ) {
+    //   dispatch({
+    //     type: "Editing",
+    //   });
+    // }
+
   }
     
 
@@ -120,11 +136,11 @@ export default function BookingComponent() {
           <article className={styles.headingBox}>
             <h1 className={styles.bookingHeading}>Design Booking</h1>
           </article>
-          <fieldset>
+          <fieldset className={styles.personalFieldset}>
             <legend>Personal Information:</legend>
             <div>
-              <div>
-                <label>
+              <div className={styles.formField}>
+                <label className={styles.formLabel}>
                   Full name:
                   <input
                     type="text"
@@ -138,7 +154,7 @@ export default function BookingComponent() {
                   {state.Status === 'Error' && !state.data.FullName ? <p className={styles.errorMessages}>Please include your full name</p> : ''}
                 </label>
               </div>
-              <div>
+              <div className={styles.formField}>
                 <label>
                   Postcode:
                   <input
@@ -153,7 +169,7 @@ export default function BookingComponent() {
                   {state.Status === 'Error' && !state.data.Postcode ? <p className={styles.errorMessages}>England, Wales, Scotland booking only</p> : ''}
                 </label>
               </div>  
-              <div>
+              <div className={styles.formField}>
                 <label>
                   House/Flat Number and Street Name:
                   <input
@@ -168,7 +184,7 @@ export default function BookingComponent() {
                   {state.Status === 'Error' && !state.data.House ? <p className={styles.errorMessages}>Please include a full address</p> : ''}
                 </label>
               </div>
-              <div>
+              <div className={styles.formField}>
                 <label>
                   City:
                   <input
@@ -188,7 +204,7 @@ export default function BookingComponent() {
           <fieldset className={styles.contactFieldset}>
             <legend> Contact Information:</legend>
             <div>
-              <div>
+              <div className={styles.formField}>
                 <label>
                   Phone Number:
                   <input
@@ -203,7 +219,7 @@ export default function BookingComponent() {
                   {state.Status === 'Error' && !state.data.PhoneNumber ? <p className={styles.errorMessages}>Please include a phone number</p> : ''}
                 </label>
               </div>
-              <div>
+              <div className={styles.formField}>
                 <label>
                   Email Address:
                   <input
