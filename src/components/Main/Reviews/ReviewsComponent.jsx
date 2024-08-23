@@ -34,8 +34,8 @@ export default function ReviewsComponent() {
     <>
       <section>
         <article className={styles.reviewContainer}>
-          <h1>Trusted</h1>
-          <p>
+          <h1 className={styles.heading}>Trusted</h1>
+          <p className={styles.reviewText}>
             We've got thousands of happy customers all over the UK. Choose your
             country to see the latest review:
           </p>
@@ -67,7 +67,9 @@ export default function ReviewsComponent() {
               Scotland
             </button>
           </div>
-          <div className={styles.reviewSubContainer}>
+          <div
+            className={Review && Review.text ? styles.reviewSubContainer : ""}
+          >
             {Review ? Review.text : ""}
           </div>
           <div className={styles.reviewContent}>

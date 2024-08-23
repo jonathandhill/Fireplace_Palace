@@ -33,69 +33,46 @@ export default function HowItWorks() {
     <div>
       <main>
         <section className={styles.hero}>
-          <article className={styles.tiles}>
-            <Image
-              // className={styles.howItWorks}
-              src="/assets/hero-mobile.png"
-              alt="phonecall"
-              width={1000}
-              height={400}
-            />
-          </article>
-          <article className={styles.textBgColor}>
-            <h1 className={styles.heroHeading}>
-              Discover the <br />
-              Perfect Fireplace ...
-            </h1>
-            <h2 className={styles.TextPhoneNumber}>
-              <Link href="/Booking"> Book consultation</Link>
-              {/* <span className={styles.phoneNumber}> 0121 345 6789</span> */}
-            </h2>
+          <div className={styles.heroDesktop}>
+            <article>
+              <Image
+                className={styles.heroImage}
+                src="/assets/hero-Desktop.png"
+                alt="phonecall"
+                width={400}
+                height={400}
+                layout="responsive"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </article>
+
+            <article className={styles.textBgColor}>
+              <div className={styles.heroHeading}>
+                <b>Discover the</b>
+              </div>
+              <br />
+              <div className={styles.heroHeading}>
+                <b>Perfect Fireplace ...</b>
+              </div>
+              <span>
+                <Link href="/Booking" className={styles.TextPhoneNumber}>
+                  Book consultation
+                </Link>
+              </span>
+            </article>
+          </div>
+          <article>
+            <ReviewsComponent />
           </article>
         </section>
-        <ReviewsComponent />
 
         <section className={styles.howItWorksContainer}>
           <h2>How is works</h2>
-          <div className={styles.howItWorksSubContainer}>
+          <div className={styles.destopHowItWorks}>
             {articles.map((articleData, index) => (
-              <ArticleComponent
-                className={styles.tiles}
-                key={index}
-                {...articleData}
-              />
+              <ArticleComponent key={index} {...articleData} />
             ))}
           </div>
-          {/* <div className={styles.howItWorksSubContainer}>
-            <ArticleComponent />
-            <article className={styles.tiles}>
-              <Image
-                src="/assets/how-it-works-2.png"
-                alt="home visit"
-                width={300}
-                height={300}
-              />
-              <div className={styles.howItWorks}>
-                <h3>We come to you...</h3>
-                <p>
-                  We come to your home to do an assessment of the space and to
-                  your style preference.
-                </p>
-              </div>
-            </article>
-            <article className={styles.tiles}>
-              <Image
-                src="/assets/how-it-works-3.png"
-                alt="recommendation"
-                width={300}
-                height={300}
-              />
-              <div className={styles.howItWorks}>
-                <h3>We recommend...</h3>
-                <p>We send you a bespoke set of fireplace recommendations.</p>
-              </div>
-            </article>
-          </div> */}
         </section>
       </main>
     </div>
