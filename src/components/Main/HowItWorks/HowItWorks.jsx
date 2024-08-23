@@ -67,7 +67,7 @@ export default function HowItWorks() {
         </section>
 
         <section className={styles.howItWorksContainer}>
-          <h2>How is works</h2>
+          <h1>How is works</h1>
           <div className={styles.destopHowItWorks}>
             {articles.map((articleData, index) => (
               <ArticleComponent key={index} {...articleData} />
