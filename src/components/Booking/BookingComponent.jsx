@@ -2,8 +2,7 @@
 import { useReducer } from "react";
 import styles from "./styleBooking.module.css";
 
-
-// create initialState (object with data and errorStatus keys)
+// create initialState (object with data and Status keys)
 const initialState = {
   data: {
     FullName: "",
@@ -16,12 +15,14 @@ const initialState = {
   Status: "Editing",
 };
 
-// Reducer function which has data and action, and different cases of action.type
+// Reducer function defines how state should change based on dispatched actions. It returns the new state
 function reducer(state, action) {
   switch (action.type) {
     case "CHANGE_FORM_DATA":
       // Make a copy of current state
       let newState = { ...state };
+
+      // potential error handling - try catch block
 
       // grab the data out of your action's payload
       const fieldName = action.payload.name;
@@ -30,10 +31,7 @@ function reducer(state, action) {
       // update the newState with the changed data
       newState.data[fieldName] = newFieldValue;
       // return new state 🔥🚀
-
       return newState;
-
-    // dont forget your breaks - important
 
     case "Submit_Started":
       return {
@@ -61,15 +59,20 @@ function reducer(state, action) {
 }
 
 export default function BookingComponent() {
-  // New "mocked up" state object that combines that stuff
-
 
   // passing reducer function and initialState into useReducer. That gives the Reducer function the initalState as 'state'
+  // returns array (tuple) of length 2
   const [state, dispatch] = useReducer(reducer, initialState);
+ 
+  // Array destructuring explanation: 
+  // const reducerResult = useReducer(reducer, initialState);
+  // const state = reducerResult[0];
+  // const dispatch = reducerResult[1];
+
   console.log("state", state);
 
+  // Called whenever input field changes, dispatches an action
   const handleChangeEvent = (event) => {
-
     dispatch({
       type: "CHANGE_FORM_DATA",
       payload: {
@@ -77,7 +80,6 @@ export default function BookingComponent() {
         value: event.target.value, // new value
       },
     });
-
 
     // if (state.Status === 'Error' && 
     //     (state.data.FullName &&
@@ -91,12 +93,11 @@ export default function BookingComponent() {
     //     type: "Editing",
     //   });
     // }
-
   }
     
-
   const handleSubmit = (e) => {
     e.preventDefault(); //prevent reload
+
     dispatch({
       type: "Submit_Started",
     });
@@ -120,13 +121,10 @@ export default function BookingComponent() {
       });
     }, 5000);
 
-    
-
-    // setHasErrors(false);
-    // console.log("Form submitted:", state);
     // Here you would typically send the data to an API
   };
 
+  // Value of all input fields are bound to state.data so reflect current state
   return (
     <section>
       <article>
@@ -231,7 +229,7 @@ export default function BookingComponent() {
                     }}
                     className={`${state.Status === 'Error' && !state.data.EmailAddress ? styles.errorInput : ''}`}
                   ></input>
-                  {state.Status === 'Error' && !state.data.EmailAddress ? <p className={styles.errorMessages}>Please include a email address</p> : ''}
+                  {state.Status === 'Error' && !state.data.EmailAddress ? <p className={styles.errorMessages}>Please include an email address</p> : ''}
                 </label>
               </div>
             </div>
